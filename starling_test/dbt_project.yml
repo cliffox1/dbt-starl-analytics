@@ -35,13 +35,15 @@ models:
   starling_test:
     # Config indicated by + and applies to all files under models/example/
     marts:
+      +schema: marts
       +materialized: table
     staging:
+      +schema: staging
       +materialized: view
 
 seeds:
   starling_test:
-    schema: source
+    +schema: source
 
 
 

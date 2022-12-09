@@ -1,7 +1,7 @@
 dbt-core
 dbt-postgres
-pgAdmin
-streamlit
+pgadmin
+dataviz_data
 psycopg2-binary
 sqlalchemy
 emoji
