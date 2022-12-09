@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source
+    database:
+    schema: public_source
+    tables:
+      - name: ops_data
+        description: customer service call logs
+        columns:
+          - name: "Chat Start Date"
+            description: The date a chat was initiated with an agent in customer services
+            quote: true
+          - name: "Chat Start Time"
+            description: The time a chat was initiated with an agent in customer services
+            quote: true
+          - name: "Chat End Time"
+            description: The time the chat was ended 
+            quote: true
+          - name: "Customer Wait Time"
+            description: How long the customer waited before someone was able to get back them
+            quote: true
+          - name: "Chat Duration"
+            description: How long the chat lasted
+            quote: true
+          - name: "Chat Closed By"
+            description: If the chat was closed by the customer or by the agent
+            quote: true
+          - name: "Chat ID"
+            description: The ID of the chat
+            quote: true
+          - name: "Customer Rating"
+            description: An optional field that customers use to give feedback on the chat
+            quote: true
+

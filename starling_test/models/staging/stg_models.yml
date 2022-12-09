@@ -1,38 +1,136 @@
 version: 2
 
-models:
-  - name: stg_prepared_source
-    descritption: Covid data grouped by date and state
-    columns:
-          - name: date
-            description: Date of the record
-            tests:
-              - not_null
-          - name: code
-            description: Country code
-            tests:
-              - not_null
-          - name: deaths
-            description: Number of deaths up to this date
-          - name: confirmed
-            description: Number of confirmed cases up to this date
-          - name: recovered
-            description: Number of recovered cases up to this date
-          - name: new_confirmed
-            description: Number of new cases registered on this date
-          - name: new_recovered
-            description: Number of recovered people registered on this date
-          - name: new_deaths
-            description: Number of deaths on this date
-  - name: stg_country_data
-    descritption: Country data
-    columns:
-          - name: region
-            description: Region of the country
-            tests:
-              - not_null
-          - name: sub-region
-            description: Sub-region of the country
-          - name: intermediate-region
-            description: Intermediate-region of the country
 
+models:
+  - name: stg_ops_data
+    description: "A starter dbt model"
+    columns:
+      - name: ChatStartDate
+        quote: true
+        description: "The date a chat was initiated with an agent in customer services"
+        tests:
+          - not_null
+      - name: ChatStartTime
+        quote: true
+        description: "The time the chat was initiated with the agent in customer services"
+        tests:
+          - not_null
+      - name: ChatEndTime
+        quote: true
+        description: "The time the chat was ended "
+        tests:
+          - not_null
+      - name: CustomerWaitTime
+        quote: true
+        description: "How long the customer waited before someone was able to get back them"
+        tests:
+          - not_null
+      - name: ChatDuration
+        quote: true
+        description: "How long the chat lasted"
+        tests:
+          - not_null
+      - name: ChatClosedBy
+        quote: true
+        description: "If the chat was closed by the customer or by the agent"
+        tests:
+          - not_null
+      - name: ChatID
+        quote: true
+        description: "The ID of the chat"
+        tests:
+          - unique
+          - not_null
+      - name: CustomerRating
+        quote: true
+        description: "An optional field that customers use to give feedback on the chat"
+
+metrics:
+  - name: number_of_chats
+    label: number_of_chats
+    model: ref('stg_ops_data')
+    description: ""
+
+    calculation_method: count_distinct
+    expression: ChatID 
+
+    timestamp: ChatStartDate
+    time_grains: [day, week, month, quarter, year, all_time]
+
+    dimensions:
+      - ChatClosedBy
+      - ChatStartDate
+        
+    # general properties
+    config:
+      enabled: true 
+      treat_null_values_as_zero:  false
+
+  - name: average_chatduration
+    label: average_chatduration
+    model: ref('stg_ops_data')
+    description: ""
+
+    calculation_method: average
+    expression: ChatDuration
+
+    timestamp: ChatStartDate
+    time_grains: [day, week, month, quarter, year, all_time]
+
+    dimensions:
+      - ChatClosedBy
+      - ChatStartDate
+        
+    # general properties
+    config:
+      enabled: true 
+      treat_null_values_as_zero:  false
+
+
+  - name: average_customerwait
+    label: average_customerwait
+    model: ref('stg_ops_data')
+    description: ""
+
+    calculation_method: average
+    expression: CustomerWaitTime
+
+    timestamp: ChatStartDate
+    time_grains: [day, week, month, quarter, year, all_time]
+
+    dimensions:
+      - ChatClosedBy
+      - ChatStartDate
+    
+    filters:
+      - field: CustomerWaitTime
+        operator: '='
+        value: "'00:00:00'"
+        
+    # general properties
+    config:
+      enabled: true 
+      treat_null_values_as_zero:  false
+
+  
+
+  - name: average_customerrating
+    label: average_customerrating
+    model: ref('stg_ops_data')
+    description: ""
+
+    calculation_method: average
+    expression: CustomerRating
+
+    timestamp: ChatStartDate
+    time_grains: [day, week, month, quarter, year, all_time]
+
+    dimensions:
+      - ChatClosedBy
+      - ChatStartDate
+    
+        
+    # general properties
+    config:
+      enabled: true 
+      treat_null_values_as_zero:  true
