@@ -85,7 +85,7 @@ dbt run  --profiles-dir ./profiles
 
 # To run a specific model use the --select <sql_file_name_of_the_model>
 # E.g.:
-dbt run  --select stg_country_data --profiles-dir ./profiles
+dbt run  --select stg_ops_data --profiles-dir ./profiles
 ```
 
 ## Materialization types
@@ -127,9 +127,9 @@ Singular tests are used inside the configuration yaml files. They have to be ass
 E.g.:
 ```
 models:
-  - name: stg_prepared_source
+  - name: stg_ops_data_source
     columns:
-       - name: date
+       - name: ChatID
          tests:
            - not_null
            - unique
@@ -221,7 +221,7 @@ At this point you might have noticed the .yaml files.
 demo
 ├─ models
 │  ├─ staging
-│  │  ├─ src_covid_data.yml
+│  │  ├─ src_ops_data.yml
 │  │  ├─ stg_models.yml
 │  │  └─ *.sql
 
