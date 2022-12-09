@@ -40,7 +40,7 @@ models:
       +materialized: view
 
 seeds:
-  demo:
+  starling_test:
     schema: source
 
 
