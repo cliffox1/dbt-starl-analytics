@@ -1,8 +1,0 @@
-dbt-core
-dbt-postgres
-streamlit
-psycopg2-binary
-pycountry
-sqlalchemy
-emoji
-diagrams
