@@ -1,4 +1,4 @@
-demo:
+starling_test:
   target: local
   outputs:
     docker:
