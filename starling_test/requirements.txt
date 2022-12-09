@@ -1,5 +1,6 @@
 dbt-core
 dbt-postgres
+pgAdmin
 streamlit
 psycopg2-binary
 sqlalchemy
