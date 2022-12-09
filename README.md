@@ -68,8 +68,6 @@ Refer to https://hub.getdbt.com/ to check out packages and their usage.
 dbt deps
 ```
 
-
-```
 ## CSV to database tables
 Seeds are CSV files in your dbt project (typically in your seeds directory), that dbt can load into your data warehouse using the ```dbt seed``` command.
 ```bash
