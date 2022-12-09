@@ -68,67 +68,6 @@ Refer to https://hub.getdbt.com/ to check out packages and their usage.
 dbt deps
 ```
 
-## Get data from the API
-There is a python script that reads from  https://corona-api.com/countries/{country_code}?includeTimeline=True and writes in ```covid_data.csv``` in the <b>seeds</b> folder.
-
-E.g.  https://corona-api.com/countries/al?includeTimeline=True
-
-An example of the JSON response is as follows. The ```data.timeline``` list is what feeds the ```covid_data``` table with records.
-
-```
-{
-   "data":{
-      "coordinates":{
-         "latitude":41,
-         "longitude":20
-      },
-      "name":"Albania",
-      "code":"AL",
-      "population":2986952,
-      "updated_at":"2022-07-06T08:12:23.204Z",
-      "today":{
-         "deaths":0,
-         "confirmed":0
-      },
-      "latest_data":{
-         "deaths":2619,
-         "confirmed":166690,
-         "recovered":151914,
-         "critical":12157,
-         "calculated":{
-            "death_rate":1.5711800347951288,
-            "recovery_rate":91.13564101025857,
-            "recovered_vs_death_ratio":null,
-            "cases_per_million_population":3
-         }
-      },
-      "timeline":[
-         {
-            "updated_at":"2022-07-06T04:20:58.000Z",
-            "date":"2022-07-06",
-            "deaths":3502,
-            "confirmed":282690,
-            "recovered":0,
-            "new_confirmed":0,
-            "new_recovered":0,
-            "new_deaths":0,
-            "active":279188
-         }
-        ]
-      }
-   }
-
-```
-So the API needs a country code to return data. For this there is a ```countries```  list of country codes you need to provide as arguments.
-Add any country code to this list to feed the dataset with new data. 
-
-Run script
-```bash
-# In this case we are calling the API for al-albania, de-germany, it-italy
-python get_data.py -i al de it
-```
-
-
 ## CSV to database tables
 Seeds are CSV files in your dbt project (typically in your seeds directory), that dbt can load into your data warehouse using the ```dbt seed``` command.
 ```bash
