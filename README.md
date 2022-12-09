@@ -1,12 +1,11 @@
 # Welcome to your new dbt project!
 
 
-# covid-dbt-analytics
-Dbt project with postgres, python, and streamlit.
+# starling_test-analytics
+Dbt project with postgres and streamlit.
 
 
 ## Requirements
-* Python
 * dbt-core & dbt-postgres
 * Docker Compose
 
