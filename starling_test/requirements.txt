@@ -1,6 +1,6 @@
 dbt-core
 dbt-postgres
-pgadmin
+pgadmin4
 metabase
 psycopg2-binary
 sqlalchemy
