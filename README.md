@@ -6,16 +6,16 @@ Dbt project with postgres and streamlit.
 
 
 ## Requirements
-* dbt-core & dbt-postgres
+* dbt-core, dbt-postgres, pgadmin and dataviz
 * Docker Compose
 
 # Run the dbt project without Streamlit
 
 ## Start the database container
 ```bash
-docker compose up postgres
+docker compose up postgres pgadmin
 ```
-This will create a postgres container from the image defined in the docker-compose.yaml file.
+This will create a postgres and pgadmin container from the image defined in the docker-compose.yaml file.
 
 ## Create a virtual environment (Windows)
 ```bash
