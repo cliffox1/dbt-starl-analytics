@@ -6,43 +6,43 @@ models:
     description: "A starter dbt model"
     columns:
       - name: ChatStartDate
-        quote: true
+        quote: false
         description: "The date a chat was initiated with an agent in customer services"
         tests:
           - not_null
       - name: ChatStartTime
-        quote: true
+        quote: false
         description: "The time the chat was initiated with the agent in customer services"
         tests:
           - not_null
       - name: ChatEndTime
-        quote: true
+        quote: false
         description: "The time the chat was ended "
         tests:
           - not_null
-      - name: CustomerWaitTime
-        quote: true
+      - name: CustomerWaitTime_Minutes
+        quote: false
         description: "How long the customer waited before someone was able to get back them"
         tests:
           - not_null
-      - name: ChatDuration
-        quote: true
+      - name: ChatDuration_Minutes
+        quote: false
         description: "How long the chat lasted"
         tests:
           - not_null
       - name: ChatClosedBy
-        quote: true
+        quote: false
         description: "If the chat was closed by the customer or by the agent"
         tests:
           - not_null
       - name: ChatID
-        quote: true
+        quote: false
         description: "The ID of the chat"
         tests:
           - unique
           - not_null
       - name: CustomerRating
-        quote: true
+        quote: false
         description: "An optional field that customers use to give feedback on the chat"
 
 metrics:
@@ -66,13 +66,13 @@ metrics:
       enabled: true 
       treat_null_values_as_zero:  false
 
-  - name: average_chatduration
-    label: average_chatduration
+  - name: average_chatduration_minutes
+    label: average_chatduration_minutes
     model: ref('stg_ops_data')
     description: ""
 
     calculation_method: average
-    expression: ChatDuration
+    expression: ChatDuration_Minutes
 
     timestamp: ChatStartDate
     time_grains: [day, week, month, quarter, year, all_time]
@@ -87,13 +87,13 @@ metrics:
       treat_null_values_as_zero:  false
 
 
-  - name: average_customerwait
-    label: average_customerwait
+  - name: average_customerwait_minutes
+    label: average_customerwait_minutes
     model: ref('stg_ops_data')
     description: ""
 
     calculation_method: average
-    expression: CustomerWaitTime
+    expression: CustomerWaitTime_Minutes
 
     timestamp: ChatStartDate
     time_grains: [day, week, month, quarter, year, all_time]
@@ -103,9 +103,9 @@ metrics:
       - ChatStartDate
     
     filters:
-      - field: CustomerWaitTime
+      - field: CustomerWaitTime_Minutes
         operator: '!='
-        value: "'00:00:00'"
+        value: '0'
         
     # general properties
     config:
