@@ -2,11 +2,11 @@
 
 
 # starling_test-analytics
-Dbt project with postgres and streamlit.
+Dbt project with postgres and metabase.
 
 
 ## Requirements
-* dbt-core, dbt-postgres, pgadmin and dataviz
+* dbt-core, dbt-postgres, pgadmin and metabase
 * Docker Compose
 
 # Run the dbt project without Streamlit
@@ -177,26 +177,7 @@ dbt test --select test_type:singular
 dbt test --select test_type:generic
 ```
 
-
-## Compile analyses
-Analysis are sql files you want to save and version inside of your dbt project but you don't need to materialize them.
-
-```bash
- dbt compile --select analysis --profiles-dir ./profiles
 ```
-
-You can actually just compile models too by replacing 'run' with 'compile' and see the generated sql under the <b>targets</b> folder.
-
-
-
-## Macros 
-Another word for function. In this project they are mainly called within models but they can also be executed separately.
-```bash
-# dbt run-operation {macro} --args {args}
-
-dbt run-operation run_this_sql --profiles-dir ./profiles
-```
-
 ## Docs and DAGs
 Ref: https://docs.getdbt.com/docs/building-a-dbt-project/documentation
 
@@ -241,11 +222,11 @@ docker compose down
 ## Install requirements and create the docker containers
 
 ```bash
-docker compose up --build
+docker compose metabase up 
 ```
 
 ## Open the UI
-Use a browser to navigate to  http://localhost:8501
+Use a browser to navigate to  http://localhost:3000
 
 Select the countries you want to get information on and click Get Data. This will fill the database with the data and will display it as a pandas DataFrame.
 You can pick as many countries as you like. Click Clear to remove all the output.
