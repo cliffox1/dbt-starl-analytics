@@ -104,7 +104,7 @@ metrics:
     
     filters:
       - field: CustomerWaitTime
-        operator: '='
+        operator: '!='
         value: "'00:00:00'"
         
     # general properties

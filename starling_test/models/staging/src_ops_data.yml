@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: source
     database:
-    schema: public_source
+    schema: starling_source
     tables:
       - name: ops_data
         description: customer service call logs
