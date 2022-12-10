@@ -210,29 +210,15 @@ demo
 
 Same thing for ```stg_models.yml``` but for models instead of sources.
 
-## Stop the docker container 
-```bash
-docker compose down
-```
-<hr>
 
 # Run the dbt project with pgadmin
 
-## Install requirements and create the docker containers
-
-```bash
-docker compose metabase up 
-```
 
 ## Open the UI
 Use a browser to navigate to  http://localhost:5432. 
 
 Use the admin@admin.com for the email address and 'postgres' as the password to log in.
 <img width="1792" alt="Screenshot 2022-12-10 at 19 26 56" src="https://user-images.githubusercontent.com/118017659/206872108-bb3c6163-2dd4-4b4e-b7c0-d9d5f73d93ce.png">
-
-
-
-
 
 
 ## Stop the docker container
