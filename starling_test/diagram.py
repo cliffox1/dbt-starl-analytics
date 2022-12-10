@@ -22,7 +22,7 @@ with Diagram("dbt with metabase", show=False, filename="dbt_metabase_diagram", d
         dbt = Custom("dbt", "./resources/dbt-logo.png")
         results = Custom("Tables", "./resources/database-table.jpg")
         # api = Custom("Source", "./resources/api.png")
-        docker >> dashboard >> ui
+        docker >> dashboard
         docker >> db
         dbt >> db >> results >> dashboard
 
