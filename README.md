@@ -34,7 +34,7 @@ All that is left is activating the environment.
 ## Create a virtual environment (Linux and MacOS)
 Open terminal and install the package.
 ```bash
-pip install virtualenv
+pip3 install virtualenv
 ```
 To create the environment go to the project directory and type:
 ```bash
