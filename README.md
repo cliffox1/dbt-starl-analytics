@@ -218,6 +218,7 @@ Same thing for ```stg_models.yml``` but for models instead of sources.
 Use a browser to navigate to  http://localhost:5432. 
 
 Use the admin@admin.com for the email address and 'postgres' as the password to log in.
+
 <img width="1792" alt="Screenshot 2022-12-10 at 19 26 56" src="https://user-images.githubusercontent.com/118017659/206872108-bb3c6163-2dd4-4b4e-b7c0-d9d5f73d93ce.png">
 
 
@@ -241,6 +242,7 @@ docker compose metabase up
 Use a browser to navigate to  http://localhost:3000
 
 Once signed in the dashboard is available for viewing.
+
 <img width="1782" alt="Screenshot 2022-12-10 at 19 12 26" src="https://user-images.githubusercontent.com/118017659/206871662-11182f20-b332-4988-ba00-d5888cc1eb54.png">
 
 
