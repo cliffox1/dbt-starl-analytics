@@ -217,7 +217,7 @@ docker compose down
 
 <hr>
 
-# Run the dbt project with Streamlit
+# Run the dbt project with metabase
 
 ## Install requirements and create the docker containers
 
@@ -228,8 +228,9 @@ docker compose metabase up
 ## Open the UI
 Use a browser to navigate to  http://localhost:3000
 
-Select the countries you want to get information on and click Get Data. This will fill the database with the data and will display it as a pandas DataFrame.
-You can pick as many countries as you like. Click Clear to remove all the output.
+Once signed in the dashboard is available for viewing.
+<img width="1782" alt="Screenshot 2022-12-10 at 19 12 26" src="https://user-images.githubusercontent.com/118017659/206871662-11182f20-b332-4988-ba00-d5888cc1eb54.png">
+
 
 
 
