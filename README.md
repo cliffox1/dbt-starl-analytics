@@ -116,6 +116,23 @@ dbt run --full-refresh --profiles-dir ./profiles
 ```
 
 
+## Schema.yml file (i.e. stg_models.yml)
+
+The model and its attributes are described. Transformation rules applied and assumptions are also recorded alongside the relevant attributes.
+E.g.:
+```
+models:
+  - name: stg_ops_data
+    description: "customer service chat data over the period 2021-07-01 to 2022-06-29"
+    columns:
+      - name: ChatStartDate
+        quote: false
+        description: "The date a chat was initiated with an agent in customer services"
+        tests:
+          - not_null
+```
+
+
 ## Run tests
 Tests are SQL queries executed against the data to check for logical mistakes.
 
@@ -135,37 +152,7 @@ models:
            - unique
 ```
 
-
-Generic tests are defined as sql files under the <b>tests</b> folder. These types of tests are done automatically, once you save the sql file.
-
-E.g.:
-
-Test written by the developer:
-```
-select *
-from {{ ref('stg_prepared_source')}}
-where confirmed < new_confirmed
-
-```
-How dbt interprets it :
-```
-select
-   count(*) as failures,
-   count(*) != 0 as should_warn,
-   count(*) != 0 as should_error
-from (
-   select *
-   from "postgres"."public"."stg_prepared_source"
-   where confirmed < new_confirmed
-
-) dbt_internal_test
-
-```
-If for any reason this query returns values, the test is said to have failed.
-
-
-
-Run tests:
+To Run tests:
 ```bash
 # Run all tests
 dbt test --profiles-dir ./profiles
@@ -177,7 +164,6 @@ dbt test --select test_type:singular
 dbt test --select test_type:generic
 ```
 
-```
 ## Docs and DAGs
 Ref: https://docs.getdbt.com/docs/building-a-dbt-project/documentation
 
@@ -219,6 +205,12 @@ Use a browser to navigate to  http://localhost:5432.
 
 Use admin@admin.com for the email address and 'postgres' as the password to log in.
 
+Create the server with details as shown 
+
+<img width="501" alt="Screenshot 2022-12-11 at 15 54 39" src="https://user-images.githubusercontent.com/118017659/206914115-ac60ba4d-3021-41d6-be86-6f5825c0eff7.png">
+
+The resulting view is as shown below
+
 <img width="1792" alt="Screenshot 2022-12-10 at 19 26 56" src="https://user-images.githubusercontent.com/118017659/206872108-bb3c6163-2dd4-4b4e-b7c0-d9d5f73d93ce.png">
 
 
@@ -238,14 +230,14 @@ docker compose down
 docker compose metabase up 
 ```
 
-## Open the UI
+## Open the UI - Task 1 & 2
 Use a browser to navigate to  http://localhost:3000
 
-Once signed in the dashboard is available for viewing.
+Sign in using email admin@admin.com and password p0stgres, the dashboard is available for viewing.
 
 <img width="1782" alt="Screenshot 2022-12-10 at 19 12 26" src="https://user-images.githubusercontent.com/118017659/206871662-11182f20-b332-4988-ba00-d5888cc1eb54.png">
 
-
+Chat Duration minutes is decreasing (maybe proactive steps were taken to address this) but no obvious pattern in Customer Wait time. Also calls closed by agents and customer have almost identical ratings. The number of calls appear to be on the increase (likely inline with customer base growing).
 
 
 ## Stop the docker container
