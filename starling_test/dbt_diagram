@@ -1,0 +1,15 @@
+digraph "dbt only" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="dbt only" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=curved]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	"45422597887c459086c6a660b7fed60c" -> ce71966e4b864a8696a70f7497eb3f99 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	ce71966e4b864a8696a70f7497eb3f99 -> "1e26a7f35f52455dbeccc2d80bcfeb77" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	a08e612c7644404597a67bf8ed6b754a -> ce71966e4b864a8696a70f7497eb3f99 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	subgraph cluster_ {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"1e26a7f35f52455dbeccc2d80bcfeb77" [label=Tables height=1.9 image="./resources/database-table.jpg" shape=none]
+		"45422597887c459086c6a660b7fed60c" [label=dbt height=1.9 image="./resources/dbt-logo.png" shape=none]
+		ce71966e4b864a8696a70f7497eb3f99 [label=PostgreSQL height=1.9 image="/Users/odutola/Documents/dbt-starl-analytics/starling_test/resources/onprem/database/postgresql.png" shape=none]
+		a08e612c7644404597a67bf8ed6b754a [label=Docker height=1.9 image="/Users/odutola/Documents/dbt-starl-analytics/starling_test/resources/onprem/container/docker.png" shape=none]
+	}
+}
