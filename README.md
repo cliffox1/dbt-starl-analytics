@@ -238,14 +238,14 @@ docker compose down
 docker compose metabase up 
 ```
 
-## Open the UI
+## Open the UI - Task 1 & 2
 Use a browser to navigate to  http://localhost:3000
 
 Once signed in the dashboard is available for viewing.
 
 <img width="1782" alt="Screenshot 2022-12-10 at 19 12 26" src="https://user-images.githubusercontent.com/118017659/206871662-11182f20-b332-4988-ba00-d5888cc1eb54.png">
 
-
+Chat Duration minutes is decreasing (maybe proactive steps were taken to address this) but no obvious pattern in Customer Wait time. Also calls closed by agents and customer have almost identical ratings. The number of calls appear to be on the increase (likely inline with customer base growing).
 
 
 ## Stop the docker container
