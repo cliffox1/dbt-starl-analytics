@@ -17,8 +17,6 @@ with Diagram("dbt with metabase", show=False, filename="dbt_metabase_diagram", d
         docker = Docker("Docker")
         db = Postgresql("PostgreSQL")
         dashboard = Metabase("Metabase")
-        # streamlit = Custom("Streamlit", "./resources/streamlit.png")
-        # ui = Custom("Dashboard", "./resources/ui.png")
         dbt = Dbt("dbt")
         results = Custom("Tables", "./resources/database-table.jpg")
         # api = Custom("Source", "./resources/api.png")

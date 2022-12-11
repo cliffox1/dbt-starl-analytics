@@ -9,7 +9,7 @@ with stg_ops_data as (
      ,EXTRACT(MINUTE FROM ChatDuration)     as ChatDuration_minutes
      ,ChatClosedBy
      ,ChatID
-     ,CustomerRating
+     ,coalesce(CustomerRating,1)            as CustomerRating
 
 
     from  {{ref ('stg_ops_data_source')}}

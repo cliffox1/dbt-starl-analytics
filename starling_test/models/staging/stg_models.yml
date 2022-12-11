@@ -22,12 +22,12 @@ models:
           - not_null
       - name: CustomerWaitTime_Minutes
         quote: false
-        description: "How long the customer waited before someone was able to get back them"
+        description: "How long the customer waited before someone was able to get back them, converted from time datatype to double datatype"
         tests:
           - not_null
       - name: ChatDuration_Minutes
         quote: false
-        description: "How long the chat lasted"
+        description: "How long the chat lasted, converted from time datatype to double datatype"
         tests:
           - not_null
       - name: ChatClosedBy
@@ -43,7 +43,7 @@ models:
           - not_null
       - name: CustomerRating
         quote: false
-        description: "An optional field that customers use to give feedback on the chat"
+        description: "An optional field that customers use to give feedback on the chat, null values equated to 1"
 
 metrics:
   - name: number_of_chats

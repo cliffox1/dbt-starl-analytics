@@ -30,6 +30,8 @@ services:
       - pgadmin:/var/lib/pgadmin/data
     depends_on:
       - postgres 
+    links:
+      - "postgres"
 
   metabase:
     container_name: metabase_container
@@ -47,9 +49,12 @@ services:
       - 3000:3000
     restart: always
     depends_on:
-      - postgres 
+      - postgres
+    links:
+      - "postgres"
     networks:
       - postgres
+
 
 
 networks:
