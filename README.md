@@ -115,7 +115,8 @@ To fully refresh an incremental model use the following command:
 dbt run --full-refresh --profiles-dir ./profiles
 ```
 
-## schema.yml file (i.e. stg_models.yml)
+
+## Schema.yml file (i.e. stg_models.yml)
 
 The model and its attributes are described. Transformation rules applied and assumptions are also recorded alongside the relevant attributes.
 E.g.:
@@ -130,6 +131,7 @@ models:
         tests:
           - not_null
 ```
+
 
 ## Run tests
 Tests are SQL queries executed against the data to check for logical mistakes.
