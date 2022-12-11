@@ -118,7 +118,8 @@ dbt run --full-refresh --profiles-dir ./profiles
 ## schema.yml file (i.e. stg_models.yml)
 
 The model and its attributes are described. Transformation rules applied and assumptions are also recorded alongside the relevant attributes.
-
+E.g.:
+```
 models:
   - name: stg_ops_data
     description: "customer service chat data over the period 2021-07-01 to 2022-06-29"
@@ -128,7 +129,7 @@ models:
         description: "The date a chat was initiated with an agent in customer services"
         tests:
           - not_null
-
+```
 
 ```
 ## Run tests
