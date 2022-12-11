@@ -131,7 +131,6 @@ models:
           - not_null
 ```
 
-```
 ## Run tests
 Tests are SQL queries executed against the data to check for logical mistakes.
 
@@ -151,37 +150,7 @@ models:
            - unique
 ```
 
-
-Generic tests are defined as sql files under the <b>tests</b> folder. These types of tests are done automatically, once you save the sql file.
-
-E.g.:
-
-Test written by the developer:
-```
-select *
-from {{ ref('stg_prepared_source')}}
-where confirmed < new_confirmed
-
-```
-How dbt interprets it :
-```
-select
-   count(*) as failures,
-   count(*) != 0 as should_warn,
-   count(*) != 0 as should_error
-from (
-   select *
-   from "postgres"."public"."stg_prepared_source"
-   where confirmed < new_confirmed
-
-) dbt_internal_test
-
-```
-If for any reason this query returns values, the test is said to have failed.
-
-
-
-Run tests:
+To Run tests:
 ```bash
 # Run all tests
 dbt test --profiles-dir ./profiles
@@ -193,7 +162,6 @@ dbt test --select test_type:singular
 dbt test --select test_type:generic
 ```
 
-```
 ## Docs and DAGs
 Ref: https://docs.getdbt.com/docs/building-a-dbt-project/documentation
 
