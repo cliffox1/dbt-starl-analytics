@@ -115,7 +115,22 @@ To fully refresh an incremental model use the following command:
 dbt run --full-refresh --profiles-dir ./profiles
 ```
 
+## schema.yml file (i.e. stg_models.yml)
 
+The model and its attributes are described. Transformation rules applied and assumptions are also recorded alongside the relevant attributes.
+
+models:
+  - name: stg_ops_data
+    description: "customer service chat data over the period 2021-07-01 to 2022-06-29"
+    columns:
+      - name: ChatStartDate
+        quote: false
+        description: "The date a chat was initiated with an agent in customer services"
+        tests:
+          - not_null
+
+
+```
 ## Run tests
 Tests are SQL queries executed against the data to check for logical mistakes.
 
@@ -218,6 +233,12 @@ Same thing for ```stg_models.yml``` but for models instead of sources.
 Use a browser to navigate to  http://localhost:5432. 
 
 Use admin@admin.com for the email address and 'postgres' as the password to log in.
+
+Create the server with details as shown 
+
+<img width="501" alt="Screenshot 2022-12-11 at 15 54 39" src="https://user-images.githubusercontent.com/118017659/206914115-ac60ba4d-3021-41d6-be86-6f5825c0eff7.png">
+
+The resulting view is as shown below
 
 <img width="1792" alt="Screenshot 2022-12-10 at 19 26 56" src="https://user-images.githubusercontent.com/118017659/206872108-bb3c6163-2dd4-4b4e-b7c0-d9d5f73d93ce.png">
 
