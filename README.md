@@ -201,7 +201,7 @@ Same thing for ```stg_models.yml``` but for models instead of sources.
 
 
 ## Open the UI
-Use a browser to navigate to  http://localhost:5432. 
+Use a browser to navigate to  http://localhost:5050 
 
 Use admin@admin.com for the email address and 'postgres' as the password to log in.
 
