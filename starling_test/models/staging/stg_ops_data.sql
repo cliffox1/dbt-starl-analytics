@@ -1,4 +1,8 @@
-{{ config(materialized='table') }}
+{{ config(materialized='table',
+        indexes=[
+      {'columns': ['ChatStartDate'], 'type': 'hash'},
+    ]
+) }}
 with stg_ops_data as (
 
     select
