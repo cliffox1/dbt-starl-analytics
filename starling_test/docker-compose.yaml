@@ -27,7 +27,7 @@ services:
     ports:
       - "5050:80"
     volumes:
-      - pgadmin:/var/lib/pgadmin/data
+      - postgres:/var/lib/pgadmin/data
     depends_on:
       - postgres 
     networks:
@@ -44,7 +44,7 @@ services:
        MB_DB_PASS: postgres
        MB_DB_HOST: postgres #192.168.96.2
     volumes:
-      - metabase:/var/lib/metabase/data
+      - postgres:/var/lib/metabase/data
     ports:
       - 3000:3000
     restart: always
