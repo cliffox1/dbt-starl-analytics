@@ -1,14 +1,10 @@
-{{ config(materialized='table',
-        indexes=[
-      {'columns': ['ChatID'], 'type': 'hash'},
-    ]
-) }}
+{{ config(materialized='table') }}
 with stg_ops_data as (
 
     select
-     ChatStartDate
-     ,ChatStartTime
-     ,ChatEndTime
+     ChatStartDate 
+     ,ChatStartTime at time zone 'UTC'  as ChatStartTime
+     ,ChatEndTime at time zone 'UTC'    as ChatEndTime
      ,EXTRACT(MINUTE FROM CustomerWaitTime) as CustomerWaitTime_minutes
      ,EXTRACT(MINUTE FROM ChatDuration)     as ChatDuration_minutes
      ,ChatClosedBy
