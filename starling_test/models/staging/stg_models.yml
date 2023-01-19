@@ -35,9 +35,9 @@ models:
         description: "If the chat was closed by the customer or by the agent"
         tests:
           - not_null
-      - name: ChatID
+      - name: ChatID 
         quote: false
-        description: "The ID of the chat"
+        description: "The ID of the chat i.e. Primary Key"
         tests:
           - unique
           - not_null

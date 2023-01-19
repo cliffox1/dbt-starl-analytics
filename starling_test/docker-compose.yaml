@@ -42,7 +42,7 @@ services:
        MB_DB_PORT: 5432
        MB_DB_USER: postgres
        MB_DB_PASS: postgres
-       MB_DB_HOST: postgres #192.168.96.2
+       MB_DB_HOST: postgres
     volumes:
       - postgres:/var/lib/metabase/data
     ports:

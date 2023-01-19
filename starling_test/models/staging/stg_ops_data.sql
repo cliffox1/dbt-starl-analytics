@@ -1,6 +1,6 @@
 {{ config(materialized='table',
         indexes=[
-      {'columns': ['ChatStartDate'], 'type': 'hash'},
+      {'columns': ['ChatID'], 'type': 'hash'},
     ]
 ) }}
 with stg_ops_data as (
