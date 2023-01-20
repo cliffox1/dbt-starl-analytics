@@ -47,6 +47,12 @@ models:
       - name: CustomerRating
         quote: false
         description: "An optional field that customers use to give feedback on the chat, null values equated to 1"
+      - name: ChatStartTimeStamp
+        quote: false
+        description: "derived from ChatStartDate and the ChatStartTime"
+      - name: ChatEndTimeStamp
+        quote: false
+        description: "derived from ChatEndDate and the ChatEndTime"
 
 metrics:
   - name: number_of_chats

@@ -15,7 +15,8 @@ with stg_ops_data as (
      ,ChatClosedBy
      ,ChatID
      ,coalesce(CustomerRating,1)            as CustomerRating
-
+     ,(ChatStartDate + ChatStartTime at time zone 'UTC') as ChatStartTimeStamp
+     ,(ChatStartDate + ChatEndTime at time zone 'UTC')   as ChatEndTimeStamp
 
     from  {{ref ('stg_ops_data_source')}}
 
